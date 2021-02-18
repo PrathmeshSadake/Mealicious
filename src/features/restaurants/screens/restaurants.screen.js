@@ -11,12 +11,12 @@ const StyledSafeArea = styled(SafeAreaView)`
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `;
 const StyledSearchContainer = styled.View`
-  padding: 20px;
+  padding: ${(props) => props.theme.space[3]};
   background-color: #fff;
 `;
 const StyledList = styled.View`
   flex: 1;
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
   background-color: #fff;
 `;
 
