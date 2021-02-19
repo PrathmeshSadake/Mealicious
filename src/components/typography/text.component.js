@@ -4,6 +4,7 @@ const defaultTextStyles = (theme) => `
   font-family: ${theme.fonts.body};
   font-weight: ${theme.fontWeights.regular};
   color: ${theme.colors.text.primary};
+  letter-spacing: 1px;
   flex-wrap: wrap;
   margin-top: 0px;
   margin-bottom: 0px;
