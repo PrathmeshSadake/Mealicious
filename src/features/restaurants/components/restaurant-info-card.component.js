@@ -1,51 +1,20 @@
 import React from "react";
-import { Text, Image } from "react-native";
-import { Card } from "react-native-paper";
-
-import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
-
 import { Spacer } from "../../../components/spacer/spacer.component";
-
-const StyledRestaurantCard = styled(Card)`
-  padding: ${(props) => props.theme.space[3]};
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const StyledRestaurantCardCover = styled(Card.Cover)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const StyledTitle = styled.Text`
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.body};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-const StyledAddress = styled.Text`
-font-family: ${(props) => props.theme.fonts.body};
-font-size: ${(props) => props.theme.fontSizes.button};
-font-weight: ${(props) => props.theme.fontWeights.medium}
-color: ${(props) => props.theme.colors.ui.primary};
-`;
-const StyledInfo = styled.View`
-  padding: ${(props) => props.theme.space[3]} 0px;
-`;
-const StyledRating = styled.View`
-  flex-direction: row;
-`;
-const StyledRow = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: ${(props) => props.theme.space[2]} 0px;
-`;
-const StyledSectionEnd = styled.View`
-  flex-direction: row;
-  align-items: flex-end;
-`;
+import { Text } from "../../../components/typography/text.component";
+import {
+  StyledAddress,
+  StyledIcon,
+  StyledInfo,
+  StyledRating,
+  StyledRestaurantCard,
+  StyledRestaurantCardCover,
+  StyledRow,
+  StyledSectionEnd,
+} from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -64,7 +33,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     <StyledRestaurantCard elevation={5}>
       <StyledRestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <StyledInfo>
-        <StyledTitle>{name}</StyledTitle>
+        <Text variant="label">{name}</Text>
         <StyledRow>
           <StyledRating>
             {ratingArray.map(() => (
@@ -73,22 +42,17 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
           </StyledRating>
           <StyledSectionEnd>
             {isClosedTemporarily && (
-              <Text style={{ color: "red" }}>CLOSED TEMPORARILY</Text>
+              <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
-            <Spacer variant="left.medium" />
-            {isOpenNow && <SvgXml xml={open} width={25} height={25} />}
-            <Spacer variant="left.large" />
-
-            <Image
-              style={{
-                width: 25,
-                height: 25,
-              }}
-              source={{ uri: icon }}
-            />
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={25} height={25} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <StyledIcon source={{ uri: icon }} />
+            </Spacer>
           </StyledSectionEnd>
         </StyledRow>
-        <StyledAddress>{address}</StyledAddress>
+        <StyledAddress variant="caption">{address}</StyledAddress>
       </StyledInfo>
     </StyledRestaurantCard>
   );
