@@ -4,7 +4,7 @@ import { Searchbar } from "react-native-paper";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { StyledSafeArea } from "../../../components/utility/safe-area.component";
-
+import { Spacer } from "../../../components/spacer/spacer.component";
 import styled from "styled-components/native";
 
 const StyledSearchContainer = styled.View`
@@ -24,7 +24,7 @@ export const RestaurantsScreen = () => (
       <Searchbar placeholder="Search" />
     </StyledSearchContainer>
     <StyledRestaurantList
-      data={[]}
+      data={[1, 2, 3, 4, 5, 6, 7, 8]}
       renderItem={() => (
         <Spacer position="bottom" size="large">
           <RestaurantInfoCard />
