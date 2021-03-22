@@ -21,14 +21,13 @@ const StyledRestaurantList = styled(FlatList).attrs({
 })``;
 
 const StyledLoadingContainer = styled.View`
-  position: "absolute";
+  position: absolute;
   top: 50%;
   left: 50%;
 `;
 
 const StyledLoading = styled(ActivityIndicator)`
-  marginleft: -25;
-  color: #64b5f6;
+  margin-left: -25px;
 `;
 
 export const RestaurantsScreen = () => {
@@ -37,12 +36,7 @@ export const RestaurantsScreen = () => {
     <StyledSafeArea>
       {isLoading && (
         <StyledLoadingContainer>
-          <StyledLoading
-            size={50}
-            style={{ marginLeft: -25 }}
-            animating={true}
-            color={Colors.blue300}
-          />
+          <StyledLoading size={50} animating={true} color={Colors.blue300} />
         </StyledLoadingContainer>
       )}
       <StyledSearchContainer>
