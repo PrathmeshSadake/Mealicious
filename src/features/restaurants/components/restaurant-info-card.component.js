@@ -30,8 +30,8 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
   const ratingArray = Array.from(Array(Math.floor(rating)));
   return (
-    <StyledRestaurantCard elevation={5}>
-      <StyledRestaurantCardCover key={name} source={{ uri: photos[0] }} />
+    <StyledRestaurantCard key={name} elevation={5}>
+      <StyledRestaurantCardCover source={{ uri: photos[0] }} />
       <StyledInfo>
         <Text variant="label">{name}</Text>
         <StyledRow>
