@@ -1,14 +1,17 @@
 import React from "react";
-import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+import { Card, Title } from "react-native-paper";
 import styled from "styled-components";
 
-const StyledTitle = styled(Title)``;
+const StyledTitle = styled(Title)`
+  color: ${(props) => props.theme.colors.ui.primary};
+  font-family: ${(props) => props.theme.fonts.body};
+`;
 const StyledCard = styled(Card)`
   background-color: white;
 `;
 const StyledCover = styled(Card.Cover)`
-  background-color: white;
-  padding: 10px;
+  padding: ${(props) => props.theme.space[2]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -26,7 +29,6 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
       <StyledCover source={{ uri: photos[0] }} />
       <Card.Content>
         <StyledTitle>Card title</StyledTitle>
-        <Paragraph>Card content</Paragraph>
       </Card.Content>
     </StyledCard>
   );
