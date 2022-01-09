@@ -1,5 +1,16 @@
 import React from "react";
-import { Text } from "react-native";
+import { StyleSheet } from "react-native";
+import { Avatar, Button, Card, Title, Paragraph } from "react-native-paper";
+import styled from "styled-components";
+
+const StyledTitle = styled(Title)``;
+const StyledCard = styled(Card)`
+  background-color: white;
+`;
+const StyledCover = styled(Card.Cover)`
+  background-color: white;
+  padding: 10px;
+`;
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -11,7 +22,15 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
     isOpenNow = true,
     isClosedTemporarily,
   } = restaurant;
-  return <Text>{name}</Text>;
+  return (
+    <StyledCard elevation={5}>
+      <StyledCover source={{ uri: photos[0] }} />
+      <Card.Content>
+        <StyledTitle>Card title</StyledTitle>
+        <Paragraph>Card content</Paragraph>
+      </Card.Content>
+    </StyledCard>
+  );
 };
 
 export default RestaurantInfoCard;
