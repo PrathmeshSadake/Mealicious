@@ -8,7 +8,7 @@ export const theme = {
   space,
   lineHeights,
   sizes,
-  fontxs,
+  fonts,
   fontSizes,
   fontWeights,
 };
